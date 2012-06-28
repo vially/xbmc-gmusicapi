@@ -1,2 +1,5 @@
+[B]2012.05.04.1[/B]
+- fix logging issues
+
 [B]2012.05.04[/B]
 - initial Release for XBMC
