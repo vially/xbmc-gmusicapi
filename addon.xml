@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.module.gmusicapi"
        name="gmusicapi"
-       version="2012.11.09"
+       version="0.1.0"
        provider-name="Valentin-Costel Hăloiu">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
