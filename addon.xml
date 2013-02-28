@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.module.gmusicapi"
        name="gmusicapi"
-       version="2013.02.27"
+       version="2013.02.28"
        provider-name="vially">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>

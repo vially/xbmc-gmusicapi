@@ -8,7 +8,6 @@ import hashlib
 import logging
 import os
 
-import dateutil.parser
 from decorator import decorator
 import mutagen
 
@@ -213,6 +212,7 @@ class UploadMetadata(MmCall):
         if "date" in audio:
             date_val = str(audio['date'][0])
             try:
+                import dateutil.parser
                 datetime = dateutil.parser.parse(date_val, fuzzy=True)
             except ValueError as e:
                 log.warning("could not parse date md for '%s': (%s)", filepath, e)
