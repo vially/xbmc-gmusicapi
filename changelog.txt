@@ -1,2 +1,15 @@
-[B]0.1.0[/B]
+[B]2013.02.27[/B]
+- add support for uploading album art
+- add support for .m4b files
+- add CancelUploadJobs call (not exposed in api yet)
+- Python 2.6 compatibility
+- reduced peak memory usage when uploading
+- logging improvements
+- improved error messages when uploading
+- compatibility updates
+
+[B]2012.11.09[/B]
+- compatibility updates
+
+[B]2012.05.04[/B]
 - initial Release for XBMC
