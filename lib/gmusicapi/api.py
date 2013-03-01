@@ -230,6 +230,18 @@ class Api():
 
         return library
 
+    def get_all_songs_generator(self):
+        """Returns an iterator of :ref:`song dictionaries <songdict-format>`."""
+
+        lib_chunk = self._make_call(webclient.GetLibrarySongs)
+
+        while 'continuationToken' in lib_chunk:
+            yield lib_chunk['playlist']  # 'playlist' is misleading; this is the entire chunk
+
+            lib_chunk = self._make_call(webclient.GetLibrarySongs, lib_chunk['continuationToken'])
+
+        yield lib_chunk['playlist']
+
     def get_playlist_songs(self, playlist_id):
         """Returns a list of :ref:`song dictionaries <songdict-format>`,
         which include ``playlistEntryId`` keys for the given playlist.
