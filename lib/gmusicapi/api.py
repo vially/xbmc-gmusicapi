@@ -19,7 +19,10 @@ from gmusicapi.exceptions import (
     CallFailure, ParseException, ValidationException,
     AlreadyLoggedIn, NotLoggedIn
 )
-from gmusicapi.protocol import webclient, musicmanager, upload_pb2, locker_pb2
+from gmusicapi.protocol import webclient
+try:
+    from gmusicapi.protocol import musicmanager, upload_pb2, locker_pb2
+except: pass
 from gmusicapi.utils import utils
 from gmusicapi.utils.clientlogin import ClientLogin
 from gmusicapi.utils.tokenauth import TokenAuth

@@ -7,25 +7,26 @@ import logging
 import subprocess
 
 from decorator import decorator
-from google.protobuf.descriptor import FieldDescriptor
-
+try:
+    from google.protobuf.descriptor import FieldDescriptor
+    #Map descriptor.CPPTYPE -> python type.
+    _python_to_cpp_types = {
+        long: ('int32', 'int64', 'uint32', 'uint64'),
+        float: ('double', 'float'),
+        bool: ('bool',),
+        str: ('string',),
+    }
+    
+    cpp_type_to_python = dict(
+        (getattr(FieldDescriptor, 'CPPTYPE_' + cpp.upper()), python)
+        for (python, cpplist) in _python_to_cpp_types.items()
+        for cpp in cpplist
+    )
+except: pass
 from gmusicapi import __version__
 
 log = logging.getLogger(__name__)
 
-#Map descriptor.CPPTYPE -> python type.
-_python_to_cpp_types = {
-    long: ('int32', 'int64', 'uint32', 'uint64'),
-    float: ('double', 'float'),
-    bool: ('bool',),
-    str: ('string',),
-}
-
-cpp_type_to_python = dict(
-    (getattr(FieldDescriptor, 'CPPTYPE_' + cpp.upper()), python)
-    for (python, cpplist) in _python_to_cpp_types.items()
-    for cpp in cpplist
-)
 
 root_logger_name = "gmusicapi"
 log_filename = "gmusicapi.log"
