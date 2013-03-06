@@ -5,7 +5,9 @@
 
 import sys
 
-from google.protobuf.descriptor import FieldDescriptor
+try:
+    from google.protobuf.descriptor import FieldDescriptor
+except: pass
 from requests import Request
 
 from gmusicapi.compat import json
